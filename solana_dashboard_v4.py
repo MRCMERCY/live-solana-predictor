@@ -92,7 +92,7 @@ def train_model(df, timeframe, horizon=12):
     models = []
     print(f"\nTraining models for {timeframe} timeframe...")
     for i, col in enumerate(y_train.columns):
-        model = XGBRegressor(n_estimators=1000, learning_rate=0.05, random_state=42)
+        model = XGBRegressor(n_estimators=300, learning_rate=0.05, random_state=42)
         model.fit(X_train, y_train[col])
         y_pred = model.predict(X_test)
         mae = mean_absolute_error(y_test[col], y_pred)
@@ -296,3 +296,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
